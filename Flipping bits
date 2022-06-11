@@ -1,0 +1,43 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+from numpy import append
+
+#
+# Complete the 'flippingBits' function below.
+#
+# The function is expected to return a LONG_INTEGER.
+# The function accepts LONG_INTEGER n as parameter.
+#
+
+def flippingBits(n):
+    # Write your code here
+    n='{:032b}'.format(n)
+    n=reversed(n)
+    n=list(map(int,n))
+    sum=0
+   # n=n[1::]
+    for i in range(0,len(n)):
+        #print(i,n[i])
+        if n[i]==0:
+            n[i]=1
+        elif n[i]==1:
+            n[i]=0
+        sum=sum+(n[i]*(pow(2,i)))
+    return(sum)
+
+if __name__ == '__main__':
+
+    q = int(input().strip())
+
+    for q_itr in range(q):
+        n = int(input().strip())
+
+        result = flippingBits(n)
+
+
